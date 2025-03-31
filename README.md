@@ -21,3 +21,14 @@ Comment Spring permet-il l'injection de propriétés depuis des fichiers de conf
 
 We can easily inject values in our controllers by using an application.yml or application.properties file.
 To inject the values we simply use the @Value followed by the property name and value
+
+#Job5
+Pourquoi serait-il utile d'avoir différents profils dans une application Spring ?
+
+Its usefull to have the possibility to create different profiles on the Spring application so based on the development environment (development, production) we can have different behaviours
+The application is more flexible since without changing the code, based on the different profile the application adapts
+
+#Job6
+En quoi la dépendance DevTools est-elle bénéfique pour le développement ?
+
+The DevTools dependency is really usefull since when we do changes on our code we dont need to restart the server to see the changes, but simply by updating the page (F5) we can see the changes
