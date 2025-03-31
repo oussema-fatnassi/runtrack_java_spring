@@ -11,3 +11,8 @@ Pourquoi le fichier pom.xml est-il crucial dans un projet Maven ?
 The pom.xml file is really important in a Maven project since has all the informations necessary to build and manage the project
 It defines all the dependencies, plugins for the build, project structur and manage the different versions
 
+#Job3
+Qu'est-ce qu'un contrôleur dans le contexte de Spring MVC ?
+
+A controller in Spring MVC is a Java class that manages the HTTP requests received from the web app.
+Its the entry point between the client and the application
