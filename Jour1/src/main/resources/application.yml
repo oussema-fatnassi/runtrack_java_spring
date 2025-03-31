@@ -1,2 +1,26 @@
+spring:
+  profiles:
+    active: dev
+
 greeting:
-    message: Hello World!, This is a message from application.yml
+    message: Hello World!
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+greeting:
+    message: Hello World! You are in DEV profile
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+greeting:
+    message: Hello World! You are in PROD profile
