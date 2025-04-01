@@ -1,3 +1,4 @@
+###################################   DAY1   ###################################
 #Job1
 Qu'est-ce que Spring Initializr et comment peut-il faciliter la création d'un nouveau projet Spring?
 
@@ -32,3 +33,13 @@ The application is more flexible since without changing the code, based on the d
 En quoi la dépendance DevTools est-elle bénéfique pour le développement ?
 
 The DevTools dependency is really usefull since when we do changes on our code we dont need to restart the server to see the changes, but simply by updating the page (F5) we can see the changes
+
+###################################   DAY2   ###################################
+#Job1
+Comment le modèle MVC aide-t-il à structurer une application web ?
+
+MVC stands for Model View Controller and is a design pattern that helps structure a web application by separating it into three different components:
+Model: Represents the data and the business logic of the application
+View: Responsable for displaying the data
+Controller: Its a bridge between the View and the Model
+
