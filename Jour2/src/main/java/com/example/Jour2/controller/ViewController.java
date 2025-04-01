@@ -25,5 +25,15 @@ public class ViewController {
         return "view2";
     }
 
+    @GetMapping("/view3")
+    public String showForm(){
+        return "view3";
+    }
 
+    @PostMapping("/submit")
+    public String submitForm(@RequestParam String name, Model model) {
+      String welcomeMessage = "Welcome, " + name + "!";
+      model.addAttribute("welcomeMessage", welcomeMessage);
+      return "welcome";
+    }
 }

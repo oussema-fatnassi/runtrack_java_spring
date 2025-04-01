@@ -47,3 +47,7 @@ Comment pouvez-vous passer des données d'un contrôleur à une vue dans Spring 
 In Spring Boot we pass the data to the controller to the view using a Model object
 RESULT AT http://localhost:8080/view2
 
+#Job4
+Comment Spring facilite-t-il la gestion des formulaires ?
+Spring gives us different integrated funcionalities to have a simple, ordered and powerfull form management.
+For example we can use the @RequestParam to automatically recuperate the data of the form and associate them with the variables in the Java object
