@@ -43,3 +43,7 @@ Model: Represents the data and the business logic of the application
 View: Responsable for displaying the data
 Controller: Its a bridge between the View and the Model
 
+#Job2
+Quelle est la différence entre Thymeleaf et les templates HTML classiques ?
+HTML is static, doesnt contain code that the browser can read (without using Js)
+Thymeleaf: is dynamic, we can generate dynamic HTML starting from a Model in a Controller, uses specific termes
