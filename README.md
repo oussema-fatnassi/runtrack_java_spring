@@ -74,3 +74,12 @@ Without @Entity, JPA completely ignores the class and it does not create the tab
 Comment Spring Data facilite-t-il la création de requêtes de base de données?
 Spring Data makes it easy to create a database query in the repository interface and Spring generates directly the query
 We can also have advanced queries using simply keywords
+
+#Job5
+Comment pouvez-vous créer et lire des entités avec Spring Data JPA ?
+We can read entities with Spring Data JPA using built in methods without writing SQL code
+For example:
+save() to insert a new row in our person table
+findAll() to get all the entries
+findById() to get entries by iD
+
