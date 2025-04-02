@@ -69,3 +69,8 @@ Also we can simply access it via the web UI adding /h2-console
 Quelle est l'importance des annotations, telles que @Entity, dans le contexte de JPA ?
 @Entity annotation in the JPA context is really important since it helps telling the JPA provider to map my Java class into a database table. 
 Without @Entity, JPA completely ignores the class and it does not create the table
+
+#Job4
+Comment Spring Data facilite-t-il la création de requêtes de base de données?
+Spring Data makes it easy to create a database query in the repository interface and Spring generates directly the query
+We can also have advanced queries using simply keywords
