@@ -51,3 +51,21 @@ RESULT AT http://localhost:8080/view2
 Comment Spring facilite-t-il la gestion des formulaires ?
 Spring gives us different integrated funcionalities to have a simple, ordered and powerfull form management.
 For example we can use the @RequestParam to automatically recuperate the data of the form and associate them with the variables in the Java object
+
+
+###################################   DAY3   ###################################
+#Job1
+Qu'est-ce que JPA et comment facilite-t-il l'accès aux bases de données ?
+JPA can help us access  the database using objects instead of raw SQL
+It help us mapping Java classes to databases, we use simple methods instead of SQL queries
+We have ORM to write and manage database data as Java objects
+
+#Job2
+Pourquoi les bases de données en mémoire, comme H2, sont-elles utiles pendant le développement ?
+H2 database are important in development because are fast (saved in RAM), they reset on each run and we dont need a setup (install a database server like MySQL)
+Also we can simply access it via the web UI adding /h2-console
+
+#Job3
+Quelle est l'importance des annotations, telles que @Entity, dans le contexte de JPA ?
+@Entity annotation in the JPA context is really important since it helps telling the JPA provider to map my Java class into a database table. 
+Without @Entity, JPA completely ignores the class and it does not create the table
