@@ -5,9 +5,10 @@ import com.example.Jour3.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class PersonController {
@@ -17,14 +18,39 @@ public class PersonController {
 
     @GetMapping("/")
     public String listPersons(Model model) {
-
-        personRepository.save(new Person("John Doe", 30));
-        personRepository.save(new Person("Jane Doe", 25));
-        personRepository.save(new Person("Alice Smith", 28));
-        personRepository.save(new Person("Bob Johnson", 40));
-
         List<Person> persons = personRepository.findAll();
         model.addAttribute("persons", persons);
         return "person-list";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String editPerson(@PathVariable Long id, Model model) {
+        Optional<Person> person = personRepository.findById(id);
+        person.ifPresent(value -> model.addAttribute("person", value));
+        return "edit-person";
+    }
+
+    @PostMapping("/update")
+    public String updatePerson(@ModelAttribute Person person) {
+        personRepository.save(person);
+        return "redirect:/";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deletePerson(@PathVariable Long id) {
+        personRepository.deleteById(id);
+        return "redirect:/";
+    }
+
+    @GetMapping("/add")
+    public String showAddForm(Model model) {
+        model.addAttribute("person", new Person());
+        return "add-person";
+    }
+
+    @PostMapping("/add")
+    public String addPerson(@ModelAttribute Person person) {
+        personRepository.save(person);
+        return "redirect:/"; 
     }
 }
