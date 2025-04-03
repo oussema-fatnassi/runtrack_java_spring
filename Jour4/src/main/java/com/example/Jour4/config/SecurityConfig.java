@@ -14,23 +14,27 @@ import org.springframework.security.web.authentication.AuthenticationFailureHand
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 import org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
+import com.example.Jour4.repository.UserRepository;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
-    @Bean
-    public InMemoryUserDetailsManager userDetailsService() {
-        UserDetails user1 = User.withUsername("user")
-                .password(passwordEncoder().encode("user"))
-                .roles("USER")
-                .build();
-        UserDetails admin = User.withUsername("admin")
-                .password(passwordEncoder().encode("admin"))
-                .roles("ADMIN")
-                .build();
-        return new InMemoryUserDetailsManager(user1, admin);
-    }
+    // @Bean
+    // public InMemoryUserDetailsManager userDetailsService() {
+    //     UserDetails user1 = User.withUsername("user")
+    //             .password(passwordEncoder().encode("user"))
+    //             .roles("USER")
+    //             .build();
+    //     UserDetails admin = User.withUsername("admin")
+    //             .password(passwordEncoder().encode("admin"))
+    //             .roles("ADMIN")
+    //             .build();
+    //     return new InMemoryUserDetailsManager(user1, admin);
+    // }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -46,18 +50,20 @@ public class SecurityConfig {
                         .requestMatchers("/update/**").hasRole("ADMIN")
                         .requestMatchers("/edit/**").hasRole("ADMIN")
                         .requestMatchers("/anonymous*").anonymous()
-                        .requestMatchers("/login*").permitAll()
+                        .requestMatchers("/","/welcome", "/login", "/register", "/css/**", "/js/**").permitAll()
                         .anyRequest().authenticated())
                 .formLogin(form -> form
                         .loginPage("/login")
                         .loginProcessingUrl("/perform_login")
                         .defaultSuccessUrl("/home", true)
-                        .failureUrl("/login.html?error=true")
+                        .failureUrl("/login?error=true")
                         .failureHandler(authenticationFailureHandler()))
                 .logout(logout -> logout
                         .logoutUrl("/perform_logout")
                         .deleteCookies("JSESSIONID")
-                        .logoutSuccessHandler(logoutSuccessHandler()));
+                        .logoutSuccessHandler(logoutSuccessHandler()))
+                .exceptionHandling(ex -> ex
+                        .accessDeniedPage("/error/403"));
         return http.build();
     }
 
@@ -69,7 +75,19 @@ public class SecurityConfig {
     @Bean
     public LogoutSuccessHandler logoutSuccessHandler() {
         SimpleUrlLogoutSuccessHandler handler = new SimpleUrlLogoutSuccessHandler();
-        handler.setDefaultTargetUrl("/login.html");
+        handler.setDefaultTargetUrl("/login");
         return handler;
     }
+
+    @Bean
+    public UserDetailsService userDetailsService(UserRepository userRepository) {
+        return username -> userRepository.findByUsername(username)
+            .map(user -> User.withUsername(user.getUsername())
+                             .password(user.getPassword())
+                             .roles(user.getRole()) 
+                             .build())
+            .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+    }
+    
+
 }

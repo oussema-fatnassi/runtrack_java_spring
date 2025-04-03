@@ -2,14 +2,18 @@ package com.example.Jour4.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class LoginController {
 
     @GetMapping("/")
-    public String redirectToLogin() {
-        return "redirect:/login";
+    public String redirectToWelcome() {
+        return "redirect:/welcome";
+    }
+
+    @GetMapping("/welcome")
+    public String welcome() {
+        return "welcome";
     }
 
     @GetMapping("/login")
@@ -17,8 +21,8 @@ public class LoginController {
         return "login";
     }
 
-    @GetMapping("/logout")
-    public String logout() {
-        return "redirect:/login?logout";
+    @GetMapping("/register")
+    public String register() {
+        return "register";
     }
 }

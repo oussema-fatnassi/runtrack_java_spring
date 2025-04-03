@@ -106,3 +106,7 @@ Comment Spring Security gère-t-il les autorisations basées sur les rôles ?
 To manage the differet levels of access to our application we can easily define the access levels in our filterChain by adding the access to the different roots
 For example
 .requestMatchers("/h2-console").hasRole("ADMIN")
+
+#Job5
+Comment stocker en toute sécurité les mots de passe des utilisateurs avec Spring Security?
+To securely store the password in our database we have to hash it using strong hashing algorithms like BCrypt
