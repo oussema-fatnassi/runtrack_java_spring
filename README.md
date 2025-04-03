@@ -96,3 +96,13 @@ Its better to have a separation between the business logic and the controllers f
 #Job2
 Quels sont les avantages d'utiliser Spring Security pour protéger une application ?
 Thanks to Spring security we have a built-in support for authentication, role-based access controll, protection against attachs, also support for modern authentication protocols
+
+#Job3
+Comment personnaliser le formulaire de connexion avec Spring Security ?
+To customize our login form we simply have to create a new html page and rout the login form to the newly created page
+
+#Job4
+Comment Spring Security gère-t-il les autorisations basées sur les rôles ?
+To manage the differet levels of access to our application we can easily define the access levels in our filterChain by adding the access to the different roots
+For example
+.requestMatchers("/h2-console").hasRole("ADMIN")

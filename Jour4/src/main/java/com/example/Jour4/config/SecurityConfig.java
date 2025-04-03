@@ -49,6 +49,7 @@ public class SecurityConfig {
                         .requestMatchers("/login*").permitAll()
                         .anyRequest().authenticated())
                 .formLogin(form -> form
+                        .loginPage("/login")
                         .loginProcessingUrl("/perform_login")
                         .defaultSuccessUrl("/home", true)
                         .failureUrl("/login.html?error=true")
