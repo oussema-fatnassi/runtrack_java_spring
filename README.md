@@ -92,3 +92,7 @@ Its better to have a separation between the business logic and the controllers f
 -Testability, services are easier to test
 -Separation of roles, controllers handle routing and views, services handle business rules, repositories manage data access
 -Scalability, its easier to scale our app if we have everything separated
+
+#Job2
+Quels sont les avantages d'utiliser Spring Security pour protéger une application ?
+Thanks to Spring security we have a built-in support for authentication, role-based access controll, protection against attachs, also support for modern authentication protocols

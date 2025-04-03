@@ -7,6 +7,16 @@
 </head>
 <body class="bg-gray-50 text-gray-800 p-8">
 
+    <div class="flex justify-between items-center max-w-4xl mx-auto mb-6">
+        <h1 class="text-3xl font-bold">List of Persons</h1>
+        <form th:action="@{/perform_logout}" method="post">
+            <button type="submit"
+                    class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition">
+                Logout
+            </button>
+        </form>
+    </div>
+
     <div class="max-w-4xl mx-auto">
         <h1 class="text-3xl font-bold mb-6 text-center">List of Persons</h1>
 

@@ -16,7 +16,7 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
-    @GetMapping("/")
+    @GetMapping("/home")
     public String listPersons(Model model) {
         List<Person> persons = personService.getAllPersons();
         model.addAttribute("persons", persons);
@@ -33,13 +33,13 @@ public class PersonController {
     @PostMapping("/update")
     public String updatePerson(@ModelAttribute Person person) {
         personService.savePerson(person);
-        return "redirect:/";
+        return "redirect:/home";
     }
 
     @GetMapping("/delete/{id}")
     public String deletePerson(@PathVariable Long id) {
         personService.deletePersonById(id);
-        return "redirect:/";
+        return "redirect:/home";
     }
 
     @GetMapping("/add")
@@ -51,6 +51,6 @@ public class PersonController {
     @PostMapping("/add")
     public String addPerson(@ModelAttribute Person person) {
         personService.savePerson(person);
-        return "redirect:/"; 
+        return "redirect:/home"; 
     }
 }
