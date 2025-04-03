@@ -83,3 +83,12 @@ save() to insert a new row in our person table
 findAll() to get all the entries
 findById() to get entries by iD
 
+###################################   DAY4   ###################################
+#Job1
+Pourquoi est-il conseillé de séparer la logique métier des contrôleurs ?
+Its better to have a separation between the business logic and the controllers for different reasons:
+-Better organisation and readability (controllers focus on handling HTTP requests), business logic centralized in services
+-Reausability, we can use our services in different controllers
+-Testability, services are easier to test
+-Separation of roles, controllers handle routing and views, services handle business rules, repositories manage data access
+-Scalability, its easier to scale our app if we have everything separated
