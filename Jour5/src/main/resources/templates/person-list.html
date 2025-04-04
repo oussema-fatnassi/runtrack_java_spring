@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Persons List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 p-8">
+
+    <div class="flex justify-between items-center max-w-4xl mx-auto mb-6">
+        <h1 class="text-3xl font-bold">List of Persons</h1>
+        <form th:action="@{/perform_logout}" method="post">
+            <button type="submit"
+                    class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition">
+                Logout
+            </button>
+        </form>
+    </div>
+
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold mb-6 text-center">List of Persons</h1>
+
+        <div class="flex justify-end mb-4">
+            <a href="/add"
+               class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+               + Add New Person
+            </a>
+        </div>
+
+        <table class="min-w-full bg-white rounded shadow overflow-hidden">
+            <thead class="bg-gray-200">
+                <tr>
+                    <th class="text-left px-6 py-3">ID</th>
+                    <th class="text-left px-6 py-3">Name</th>
+                    <th class="text-left px-6 py-3">Age</th>
+                    <th class="text-left px-6 py-3">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="person : ${persons}" class="border-t hover:bg-gray-50">
+                    <td class="px-6 py-3" th:text="${person.id}"></td>
+                    <td class="px-6 py-3" th:text="${person.name}"></td>
+                    <td class="px-6 py-3" th:text="${person.age}"></td>
+                    <td class="px-6 py-3">
+                        <a th:href="@{/edit/{id}(id=${person.id})}"
+                           class="text-blue-600 hover:underline mr-3">Edit</a>
+                        <a th:href="@{/delete/{id}(id=${person.id})}"
+                           class="text-red-600 hover:underline">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
